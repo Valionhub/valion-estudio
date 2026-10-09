@@ -847,6 +847,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
       });
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
     revealEls.forEach(function(el){ io.observe(el); });
+    var heroEls = document.querySelectorAll(".hero [data-reveal]");
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ heroEls.forEach(function(el){ el.classList.add("in"); }); }); });
+    setTimeout(function(){
+      var vh = window.innerHeight;
+      revealEls.forEach(function(el){
+        var r = el.getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) el.classList.add("in");
+      });
+    }, 1500);
   } else {
     revealEls.forEach(function(el){ el.classList.add("in"); });
   }
