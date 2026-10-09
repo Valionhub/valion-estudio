@@ -48,7 +48,7 @@
           { "@type": "Offer", "name": "Plus", "price": "800.00", "priceCurrency": "BRL", "description": "10 roteiros, 4 carrosséis prontos, diagnóstico de entrada, relatório mensal e estratégia.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "800.00", "priceCurrency": "BRL", "billingDuration": 1, "unitCode": "MON" } },
           { "@type": "Offer", "name": "Pro 10", "price": "900.00", "priceCurrency": "BRL", "description": "10 roteiros, 5 carrosséis, 10 vídeos editados, postagem e agendamento pelo estúdio, 1 reunião por mês.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "900.00", "priceCurrency": "BRL", "billingDuration": 1, "unitCode": "MON" } },
           { "@type": "Offer", "name": "Pro 20", "price": "1200.00", "priceCurrency": "BRL", "description": "20 roteiros, 6 carrosséis, 20 vídeos editados, postagem e agendamento pelo estúdio, 2 reuniões por mês.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1200.00", "priceCurrency": "BRL", "billingDuration": 1, "unitCode": "MON" } },
-          { "@type": "Offer", "name": "Pro 30", "price": "1700.00", "priceCurrency": "BRL", "description": "30 roteiros, 8 carrosséis, 30 vídeos editados, postagem e agendamento pelo estúdio, 2 reuniões por mês.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1700.00", "priceCurrency": "BRL", "billingDuration": 1, "unitCode": "MON" } }
+          { "@type": "Offer", "name": "Pro 30", "price": "1700.00", "priceCurrency": "BRL", "description": "30 roteiros, 8 carrosséis, 30 vídeos editados, agendamento dos posts com legenda feito pela Valion, 2 reuniões por mês.", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "1700.00", "priceCurrency": "BRL", "billingDuration": 1, "unitCode": "MON" } }
         ]
       }
     },
@@ -57,7 +57,7 @@
       "mainEntity": [
         { "@type": "Question", "name": "Preciso aparecer nos vídeos?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. É o seu rosto e a sua voz que fazem o cliente confiar antes de agendar. O teleprompter existe para isso: você lê no seu ritmo, pausa com um toque e regrava quantas vezes quiser." } },
         { "@type": "Question", "name": "Quanto tempo isso toma por mês?", "acceptedAnswer": { "@type": "Answer", "text": "Os roteiros têm cerca de um minuto. Com o texto pronto na tela, dá para gravar os dez do mês em uma manhã. Carrosséis e edição não tomam tempo seu." } },
-        { "@type": "Question", "name": "Como funciona a edição nos planos Pro?", "acceptedAnswer": { "@type": "Answer", "text": "Você grava no celular e envia pelo estúdio. A edição volta pronta, com cortes, legenda e a sua identidade, para você postar ou agendar pela ferramenta." } },
+        { "@type": "Question", "name": "Como funciona a edição nos planos Pro?", "acceptedAnswer": { "@type": "Answer", "text": "Você grava no celular e envia pelo estúdio. A edição volta pronta, com cortes, legenda e a sua identidade, para você postar ou agendar pela ferramenta. No Pro 30, nós agendamos os posts por você, já com a legenda escrita." } },
         { "@type": "Question", "name": "E as regras do meu conselho?", "acceptedAnswer": { "@type": "Answer", "text": "Cada profissão tem a sua norma de publicidade. Conferimos a da sua antes de escrever e evitamos promessa de resultado, antes e depois e sensacionalismo." } },
         { "@type": "Question", "name": "Já tenho uma social media. Faz sentido?", "acceptedAnswer": { "@type": "Answer", "text": "O estúdio foi feito para quem cuida do próprio perfil. Se você já tem alguém cuidando do perfil, ele pode servir como base de estratégia e roteiros para o trabalho dessa pessoa." } },
         { "@type": "Question", "name": "Posso trocar de plano?", "acceptedAnswer": { "@type": "Answer", "text": "Sim, ao fim de qualquer mês. O caminho natural é começar no Pro 10 e subir quando pegar ritmo." } },
@@ -289,6 +289,7 @@ h3{font:600 1.5rem/1.2 var(--serif)}
 .feat{display:grid;align-content:start;gap:9px;font-size:14px;color:var(--ink-2);flex:1}
 .feat li{display:flex;gap:10px;align-items:flex-start}
 .feat svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--steel-2)}
+.feat b{font-weight:500;color:var(--silver-2)}
 .plan .btn{width:100%;min-height:46px}
 
 .deal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);margin-top:48px}
@@ -741,13 +742,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
       </article>
       <article class="plan sheen" data-reveal style="--d:240ms">
         <h3>Pro 30</h3>
-        <p class="who">Grava toda semana e quer o mês inteiro editado.</p>
+        <p class="who">Você só grava. Do roteiro ao agendamento, é com a gente.</p>
         <p class="price"><b>R$ 1.700</b><span>por mês</span></p>
         <ul class="feat">
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>30 roteiros no teleprompter</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>8 carrosséis prontos</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>30 vídeos editados</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Postar e agendar pelo estúdio</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><b>Agendamos os posts por você, com a legenda pronta</b></li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>2 reuniões de estratégia por mês</li>
           <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico, relatório e estratégia</li>
         </ul>
@@ -777,7 +778,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
         <ul>
           <li><svg aria-hidden="true"><use href="#i-arrow"/></svg>Gravar os roteiros no seu ritmo</li>
           <li><svg aria-hidden="true"><use href="#i-arrow"/></svg>Aparecer com a sua voz e o seu jeito</li>
-          <li><svg aria-hidden="true"><use href="#i-arrow"/></svg>Postar, ou agendar pelo estúdio nos planos Pro</li>
+          <li><svg aria-hidden="true"><use href="#i-arrow"/></svg>Postar ou agendar pelo estúdio. No Pro 30, a gente agenda</li>
           <li><svg aria-hidden="true"><use href="#i-arrow"/></svg>Responder o diagnóstico com sinceridade</li>
         </ul>
       </div>
@@ -802,7 +803,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
       </details>
       <details>
         <summary>Como funciona a edição nos planos Pro? <svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
-        <p class="ans">Você grava no celular e envia pelo estúdio. A edição volta pronta, com cortes, legenda e a sua identidade, para você postar ou agendar pela ferramenta.</p>
+        <p class="ans">Você grava no celular e envia pelo estúdio. A edição volta pronta, com cortes, legenda e a sua identidade, para você postar ou agendar pela ferramenta. No Pro 30, nós agendamos os posts por você, já com a legenda escrita.</p>
       </details>
       <details>
         <summary>E as regras do meu conselho? <svg aria-hidden="true"><use href="#i-chev"/></svg></summary>
