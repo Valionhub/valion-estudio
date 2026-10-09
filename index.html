@@ -155,19 +155,24 @@ h3{font:600 1.5rem/1.2 var(--serif)}
 .chip-b{right:0;bottom:16%;animation:float 11s ease-in-out infinite reverse}
 @keyframes float{50%{transform:translateY(-10px)}}
 
-.phone{position:relative;z-index:2;width:min(300px,76vw);aspect-ratio:9/19.3;max-width:100%;border-radius:46px;padding:9px;background:linear-gradient(165deg,#30353F 0%,#141820 45%,#0C0F14 100%);box-shadow:0 0 0 1px rgba(201,211,224,.42),inset 0 0 0 1px rgba(255,255,255,.06),0 50px 100px -40px rgba(94,143,214,.55),0 30px 60px -30px rgba(0,0,0,.9)}
-.phone::before{content:"";position:absolute;left:50%;top:20px;transform:translateX(-50%);width:32%;height:20px;border-radius:999px;background:#05070A;z-index:6}
+.phone{position:relative;z-index:2;width:min(300px,76vw);aspect-ratio:9/19.3;max-width:100%;border-radius:calc(46px * var(--ps,1));padding:calc(9px * var(--ps,1));background:linear-gradient(165deg,#30353F 0%,#141820 45%,#0C0F14 100%);box-shadow:0 0 0 1px rgba(201,211,224,.42),inset 0 0 0 1px rgba(255,255,255,.06),0 50px 100px -40px rgba(94,143,214,.55),0 30px 60px -30px rgba(0,0,0,.9)}
+.phone::before{content:"";position:absolute;left:50%;top:calc(20px * var(--ps,1));transform:translateX(-50%);width:32%;height:calc(20px * var(--ps,1));border-radius:999px;background:#05070A;z-index:6}
 .phone::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(160deg,rgba(255,255,255,.6),rgba(201,211,224,.08) 30%,rgba(94,143,214,.4) 70%,rgba(255,255,255,.45));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;z-index:7}
-.screen{position:absolute;inset:9px;border-radius:38px;overflow:hidden;background:#0E1218;font-family:var(--sans);color:var(--ink)}
+.screen{position:absolute;inset:calc(9px * var(--ps,1));border-radius:calc(38px * var(--ps,1));overflow:hidden;background:#0E1218}
+.fit{width:282px;height:625px;transform-origin:0 0;transform:scale(var(--ps,1));font-family:var(--sans);color:var(--ink)}
 
-.tp{background:radial-gradient(120% 70% at 50% 0%,#1A2E58 0%,#0E1218 60%);display:grid;grid-template-rows:auto 1fr auto}
+.tp{background:radial-gradient(130% 70px at 50% 0%,#1E3561 0%,rgba(30,53,97,0) 100%) no-repeat,#0E1218;display:grid;grid-template-rows:auto 1fr auto}
 .tp-head{display:flex;justify-content:space-between;padding:52px 22px 0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel-2)}
-.tp-body{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(transparent,#000 18%,#000 82%,transparent)}
-.tp-scroll{position:absolute;left:22px;right:22px;top:0;animation:tpscroll 44s linear infinite;will-change:transform}
+.tp-body{position:relative;overflow:hidden}
+.tp-body::before,.tp-body::after{content:"";position:absolute;left:0;right:0;height:64px;z-index:2;pointer-events:none}
+.tp-body::before{top:0;background:linear-gradient(#0E1218,rgba(14,18,24,0))}
+.tp-body::after{bottom:0;background:linear-gradient(rgba(14,18,24,0),#0E1218)}
+.tp-scroll{position:absolute;left:22px;right:22px;top:0;animation:tpscroll 44s linear infinite;will-change:transform;transform:translateZ(0)}
+.offscreen .tp-scroll,.offscreen.metal,.offscreen .track{animation-play-state:paused}
 .tp-copy{display:grid;gap:14px;padding:26px 0 70px}
 .tp-scroll p{font:500 clamp(15px,.6vw + 11px,18px)/1.45 var(--sans)}
 .tp-scroll .k{font:500 10px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--steel-2);margin-top:6px}
-.tp-line{position:absolute;left:14px;right:14px;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,211,224,.5),transparent)}
+.tp-line{position:absolute;left:14px;right:14px;top:50%;height:1px;z-index:3;background:linear-gradient(90deg,transparent,rgba(201,211,224,.5),transparent)}
 @keyframes tpscroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
 .tp-controls{display:flex;justify-content:center;align-items:center;gap:10px;padding:14px 18px 26px}
 .tp-controls i{width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font:500 12px/1 var(--sans);font-style:normal;color:var(--ink-2)}
@@ -281,7 +286,7 @@ h3{font:600 1.5rem/1.2 var(--serif)}
 .price b{font:600 clamp(1.9rem,1.3vw + .7rem,2.4rem)/1 var(--serif);letter-spacing:-.01em;font-variant-numeric:tabular-nums;white-space:nowrap}
 .price span{font-size:13px;color:var(--ink-3)}
 .decoy{font-size:13px;color:var(--steel-2);border-left:2px solid var(--steel);padding-left:10px;border-radius:0}
-.feat{display:grid;gap:9px;font-size:14px;color:var(--ink-2);flex:1}
+.feat{display:grid;align-content:start;gap:9px;font-size:14px;color:var(--ink-2);flex:1}
 .feat li{display:flex;gap:10px;align-items:flex-start}
 .feat svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--steel-2)}
 .plan .btn{width:100%;min-height:46px}
@@ -309,13 +314,11 @@ h3{font:600 1.5rem/1.2 var(--serif)}
 footer{position:relative;z-index:1;border-top:1px solid var(--line);padding-block:32px 40px;font-size:13px;color:var(--ink-3)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center}
 
-.js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0ms)}
+.js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
 .js [data-reveal].in{opacity:1;transform:none}
 
 @media (max-width:1099px){
-  .plans{display:flex;width:calc(100% + 32px);margin-left:-16px;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding:16px calc((100% - min(320px,80vw))/2) 28px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .plans::-webkit-scrollbar{display:none}
-  .plan{flex:0 0 min(320px,80vw);scroll-snap-align:center}
+  .plans{grid-template-columns:1fr;gap:14px;max-width:560px;margin-inline:auto}
   .plan.is-target{transform:none}
 }
 @media (max-width:899px){
@@ -336,7 +339,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
   .studio{height:380vh}
   .studio-grid{grid-template-columns:1fr;gap:18px;align-content:center}
   .studio-phone{order:-1}
-  .studio-phone .phone{width:min(200px,46vw)}
+  .studio-sticky{padding-top:72px}
+  .studio-phone .phone{width:min(240px,54vw,27vh)}
+  .chip{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(16,19,26,.94)}
+  .nav.is-scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,11,11,.94)}
+  .phone{box-shadow:0 0 0 1px rgba(201,211,224,.42),0 30px 60px -30px rgba(0,0,0,.9)}
+  .js [data-reveal]{transition-duration:.45s;transition-delay:0s}
   .steps{min-height:136px;padding-left:0;display:block}
   .steps::before,.steps::after{display:none}
   .step{position:absolute;inset:0;opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -378,7 +386,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js [data-reveal]{opacity:1;transform:none;transition:none}
-  .metal,.tp-scroll,.track,.chip,.glow i{animation:none}
+  .metal,.track,.chip,.glow i{animation:none}
   .bars i{transform:none;transition:none}
   .btn,.plan,.step,.screen,.hiw-line i,.steps::after{transition:none}
 }
@@ -425,7 +433,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
     </div>
     <div class="hero-visual" data-reveal style="--d:200ms">
       <div class="phone" role="img" aria-label="Celular mostrando o teleprompter do Valion Estúdio com um roteiro de Reel rolando na tela">
-        <div class="screen tp">
+        <div class="screen"><div class="fit tp">
           <div class="tp-head"><span>Reel 04</span><span>1 min</span></div>
           <div class="tp-body">
             <div class="tp-scroll">
@@ -453,7 +461,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
             <div class="tp-line"></div>
           </div>
           <div class="tp-controls" aria-hidden="true"><i>A-</i><i class="play"><svg><use href="#i-play"/></svg></i><i>A+</i></div>
-        </div>
+        </div></div>
       </div>
       <div class="chips">
         <div class="chip chip-a"><b>4 de 10</b>roteiros gravados</div>
@@ -558,15 +566,15 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
       </div>
       <div class="studio-phone">
         <div class="phone" role="img" aria-label="Celular mostrando as telas do estúdio: início, roteiro aberto, teleprompter e relatório mensal">
-          <div class="screen s-home on">
+          <div class="screen on"><div class="fit s-home">
             <p class="s-hi">Boa tarde,</p>
             <p class="s-name">Dra. Helena</p>
             <p class="s-sub">Seu espaço de criação. Um conteúdo de cada vez.</p>
             <div class="s-card"><b>Roteiros de Reels</b><span>Seus roteiros prontos pra gravar</span><i>4 de 10 gravados</i><div class="s-bar"><s style="width:40%"></s></div></div>
             <div class="s-card"><b>Carrosséis prontos</b><span>Posts de carrossel pra publicar</span><i>2 de 5 publicados</i></div>
             <div class="s-card"><b>Relatório de setembro</b><span>O que funcionou e o que muda</span><i>Pronto para ler</i></div>
-          </div>
-          <div class="screen s-script">
+          </div></div>
+          <div class="screen"><div class="fit s-script">
             <p class="s-k">Reel 04</p>
             <h3>Você sai da consulta e esquece metade do que foi dito?</h3>
             <p class="s-meta">148 palavras, cerca de 60 a 68 s</p>
@@ -577,8 +585,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
             <p class="s-k">CTA</p>
             <p>Me segue, porque aqui eu explico o que acontece dentro da consulta, com calma.</p>
             <div class="s-actions"><span class="s-btn">Iniciar teleprompter</span><span class="s-btn ghost">Marcar gravado</span></div>
-          </div>
-          <div class="screen tp">
+          </div></div>
+          <div class="screen"><div class="fit tp">
             <div class="tp-head"><span>Reel 04</span><span>1 min</span></div>
             <div class="tp-body">
               <div class="tp-scroll">
@@ -606,8 +614,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
               <div class="tp-line"></div>
             </div>
             <div class="tp-controls" aria-hidden="true"><i>A-</i><i class="play"><svg><use href="#i-play"/></svg></i><i>A+</i></div>
-          </div>
-          <div class="screen s-report">
+          </div></div>
+          <div class="screen"><div class="fit s-report">
             <p class="s-k">Relatório de setembro</p>
             <div class="s-metrics">
               <div><b>2.318</b><span>seguidores <i>+184</i></span></div>
@@ -620,7 +628,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
             <p>Posts de data comemorativa ficaram abaixo da média de alcance.</p>
             <p class="s-k">O que muda em outubro</p>
             <p>Mais bastidor de consultório, menos data comemorativa. Dois Reels por semana.</p>
-          </div>
+          </div></div>
         </div>
       </div>
     </div>
@@ -678,32 +686,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
     </div>
     <div class="plans">
       <article class="plan sheen" data-reveal>
-        <h3>Pro 30</h3>
-        <p class="who">Grava toda semana e quer o mês inteiro editado.</p>
-        <p class="price"><b>R$ 1.700</b><span>por mês</span></p>
+        <h3>Básico</h3>
+        <p class="who">Para quem só precisa saber o que falar.</p>
+        <p class="price"><b>R$ 300</b><span>por mês</span></p>
         <ul class="feat">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>30 roteiros no teleprompter</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>8 carrosséis prontos</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>30 vídeos editados</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Postar e agendar pelo estúdio</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>2 reuniões de estratégia por mês</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico, relatório e estratégia</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>10 roteiros no teleprompter</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico de entrada</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Relatório mensal e estratégia</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Estúdio no celular</li>
         </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20Pro%2030." target="_blank" rel="noopener">Escolher Pro 30</a>
+        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20B%C3%A1sico." target="_blank" rel="noopener">Escolher Básico</a>
       </article>
       <article class="plan sheen" data-reveal style="--d:60ms">
-        <h3>Pro 20</h3>
-        <p class="who">Já tem ritmo e quer dobrar a presença.</p>
-        <p class="price"><b>R$ 1.200</b><span>por mês</span></p>
+        <h3>Plus</h3>
+        <p class="who">Roteiros e carrosséis para preencher o mês.</p>
+        <p class="price"><b>R$ 800</b><span>por mês</span></p>
         <ul class="feat">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>20 roteiros no teleprompter</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>6 carrosséis prontos</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>20 vídeos editados</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Postar e agendar pelo estúdio</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>2 reuniões de estratégia por mês</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico, relatório e estratégia</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>10 roteiros no teleprompter</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>4 carrosséis prontos</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico de entrada</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Relatório mensal e estratégia</li>
         </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20Pro%2020." target="_blank" rel="noopener">Escolher Pro 20</a>
+        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20Plus." target="_blank" rel="noopener">Escolher Plus</a>
       </article>
       <article class="plan is-target" data-reveal style="--d:120ms">
         <span class="badge">Recomendado</span>
@@ -722,28 +726,32 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
         <a class="btn btn-silver" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20Pro%2010." target="_blank" rel="noopener">Escolher Pro 10</a>
       </article>
       <article class="plan sheen" data-reveal style="--d:180ms">
-        <h3>Plus</h3>
-        <p class="who">Roteiros e carrosséis para preencher o mês.</p>
-        <p class="price"><b>R$ 800</b><span>por mês</span></p>
+        <h3>Pro 20</h3>
+        <p class="who">Já tem ritmo e quer dobrar a presença.</p>
+        <p class="price"><b>R$ 1.200</b><span>por mês</span></p>
         <ul class="feat">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>10 roteiros no teleprompter</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>4 carrosséis prontos</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico de entrada</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Relatório mensal e estratégia</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>20 roteiros no teleprompter</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>6 carrosséis prontos</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>20 vídeos editados</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Postar e agendar pelo estúdio</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>2 reuniões de estratégia por mês</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico, relatório e estratégia</li>
         </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20Plus." target="_blank" rel="noopener">Escolher Plus</a>
+        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20Pro%2020." target="_blank" rel="noopener">Escolher Pro 20</a>
       </article>
       <article class="plan sheen" data-reveal style="--d:240ms">
-        <h3>Básico</h3>
-        <p class="who">Para quem só precisa saber o que falar.</p>
-        <p class="price"><b>R$ 300</b><span>por mês</span></p>
+        <h3>Pro 30</h3>
+        <p class="who">Grava toda semana e quer o mês inteiro editado.</p>
+        <p class="price"><b>R$ 1.700</b><span>por mês</span></p>
         <ul class="feat">
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>10 roteiros no teleprompter</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico de entrada</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Relatório mensal e estratégia</li>
-          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Estúdio no celular</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>30 roteiros no teleprompter</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>8 carrosséis prontos</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>30 vídeos editados</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Postar e agendar pelo estúdio</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>2 reuniões de estratégia por mês</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Diagnóstico, relatório e estratégia</li>
         </ul>
-        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20B%C3%A1sico." target="_blank" rel="noopener">Escolher Básico</a>
+        <a class="btn btn-ghost" href="https://wa.me/5519978150417?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20do%20Valion%20Est%C3%BAdio%20e%20quero%20come%C3%A7ar%20no%20plano%20Pro%2030." target="_blank" rel="noopener">Escolher Pro 30</a>
       </article>
     </div>
   </div>
@@ -845,7 +853,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
       entries.forEach(function(e){
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
+    }, { rootMargin: "0px 0px 12% 0px", threshold: 0.01 });
     revealEls.forEach(function(el){ io.observe(el); });
     var heroEls = document.querySelectorAll(".hero [data-reveal]");
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ heroEls.forEach(function(el){ el.classList.add("in"); }); }); });
@@ -890,6 +898,27 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
     counters.forEach(function(c){ c.querySelectorAll("[data-count]").forEach(runCount); });
   }
 
+  var phones = document.querySelectorAll(".phone");
+  function fitPhones(){
+    phones.forEach(function(p){
+      var w = p.getBoundingClientRect().width;
+      if (w) p.style.setProperty("--ps", (w / 300).toFixed(4));
+    });
+  }
+  fitPhones();
+  if ("ResizeObserver" in window) {
+    var ro = new ResizeObserver(fitPhones);
+    phones.forEach(function(p){ ro.observe(p); });
+  } else {
+    window.addEventListener("resize", fitPhones);
+  }
+  if ("IntersectionObserver" in window) {
+    var vio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.classList.toggle("offscreen", !e.isIntersecting); });
+    }, { rootMargin: "20% 0px" });
+    document.querySelectorAll(".phone, .metal, .marquee").forEach(function(el){ vio.observe(el); });
+  }
+
   var nav = document.querySelector(".nav");
   var root = document.documentElement;
   var hiw = document.querySelector(".hiw-grid");
@@ -930,15 +959,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-bet
   window.addEventListener("resize", onScroll);
   update();
 
-  var plans = document.querySelector(".plans");
-  var target = plans ? plans.querySelector(".is-target") : null;
-  function centerPlan(){
-    if (!plans || !target || window.innerWidth >= 1100) return;
-    plans.scrollLeft = target.offsetLeft - (plans.clientWidth - target.offsetWidth) / 2;
-  }
-  centerPlan();
-  var rt;
-  window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(centerPlan, 120); });
   if (window.matchMedia("(pointer: fine)").matches) {
     document.querySelectorAll(".plan").forEach(function(c){
       c.addEventListener("pointermove", function(e){
